@@ -24,5 +24,12 @@ public class Pokedex {
     public double dañoPromedio(){
         return (pokemones.get(0).getDaño()+pokemones.get(1).getDaño()+pokemones.get(0).getDaño())/3 ;
     }
+
+    @Override
+    public String toString() {
+        return "Pokedex{" + "pokemones=" + pokemones + '}';
+    }
+    
+    
        
 }

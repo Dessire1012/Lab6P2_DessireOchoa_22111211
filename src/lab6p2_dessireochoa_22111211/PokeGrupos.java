@@ -62,7 +62,6 @@ public class PokeGrupos {
         } else{
           return tipo = "Legendario";
         }
-
     }
 
     public void setTipo(String tipo) {
