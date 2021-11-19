@@ -275,13 +275,23 @@ public class PokemonFight extends javax.swing.JFrame {
                 .addGap(61, 61, 61))
         );
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setText("Mostrar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.setText("Editar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("jMenuItem3");
+        jMenuItem3.setText("Eliminar");
         jPopupMenu1.add(jMenuItem3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -699,6 +709,7 @@ public class PokemonFight extends javax.swing.JFrame {
                 = new DefaultMutableTreeNode(
                         new Pokedex()
                 );
+        
         DefaultMutableTreeNode nodo_pokedex2;
         nodo_pokedex2
                 = new DefaultMutableTreeNode(
@@ -719,7 +730,7 @@ public class PokemonFight extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPane3StateChanged
 
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTreeMouseClicked
-       /*if (evt.isMetaDown()) {
+       if (evt.isMetaDown()) {
             //seleccionar un nodo con click derecho
             int row = jTree.getClosestRowForLocation(
                     evt.getX(), evt.getY());
@@ -729,14 +740,22 @@ public class PokemonFight extends javax.swing.JFrame {
                     getLastPathComponent();
             nodo_seleccionado = (DefaultMutableTreeNode) v1;
             if (nodo_seleccionado.getUserObject() instanceof Pokedex) {
-                persona_seleccionada
-                        = (Persona) nodo_seleccionado.
+                Pokedex pokemonSeleccionado
+                        = (Pokedex) nodo_seleccionado.
                         getUserObject();
-                menu_popup.show(evt.getComponent(),
+                jPopupMenu1.show(evt.getComponent(),
                         evt.getX(), evt.getY());
             }
-        */
+    }    
     }//GEN-LAST:event_jTreeMouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
