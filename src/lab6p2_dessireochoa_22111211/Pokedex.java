@@ -17,8 +17,21 @@ public class Pokedex {
         this.pokemones = pokemones;
     }
     
-    public void addPokemon(String nombre, float daño, String velocidad){
-         pokemones.add(new Pokemones(nombre, daño, velocidad));
+    
+    public void addPokemonE(String nombre, float daño, String velocidad){
+         pokemones.add(new PokeElectrico(nombre, daño, velocidad));
+    }
+    
+    public void addPokemonF(String nombre, float daño, String velocidad){
+         pokemones.add(new PokeFantasma(nombre, daño, velocidad));
+    }
+    
+    public void addPokemonP(String nombre, float daño, String velocidad){
+         pokemones.add(new PokePsiquico(nombre, daño, velocidad));
+    }
+    
+    public void addPokemonV(String nombre, float daño, String velocidad){
+         pokemones.add(new PokeVenenoso(nombre, daño, velocidad));
     }
     
     public double dañoPromedio(){

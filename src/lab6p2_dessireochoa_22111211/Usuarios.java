@@ -78,11 +78,19 @@ public class Usuarios {
     public ArrayList<Pokedex> getPokedex() {
         return pokedex;
     }
+    
+    public  Pokedex get1Pokedex(int posicion){
+        return pokedex.get(posicion);
+    }
 
     public void setPokedex(ArrayList<Pokedex> pokedex) {
         if (pokedex.size() <= 2){
             this.pokedex = pokedex;
         }
+    }
+    
+    public void addPokedex (){
+        pokedex.add(new Pokedex());
     }
 
     @Override

@@ -5,7 +5,10 @@
  */
 package lab6p2_dessireochoa_22111211;
 
+import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -85,8 +88,10 @@ public class PokemonFight extends javax.swing.JFrame {
         jRadioButton21 = new javax.swing.JRadioButton();
         jButton2_Editar2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu2_Logout = new javax.swing.JMenu();
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Registro");
@@ -192,6 +197,12 @@ public class PokemonFight extends javax.swing.JFrame {
         jLabel3.setText("Usuario:");
 
         jLabel4.setText("Contraseña:");
+
+        jTextField2_contraseña1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2_contraseña1ActionPerformed(evt);
+            }
+        });
 
         jButton1_ingresar1.setText("Ingresar");
         jButton1_ingresar1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -395,9 +406,9 @@ public class PokemonFight extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(jButton1_JTree2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -449,15 +460,12 @@ public class PokemonFight extends javax.swing.JFrame {
                             .addComponent(jTextField1_Nombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField2_Daño2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField3_Vida2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel26))
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(105, 105, 105)
-                                .addComponent(jButton1_JTree2))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel25)
-                                    .addComponent(jLabel26))
                                 .addGap(9, 9, 9)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jRadioButton15)
@@ -465,7 +473,10 @@ public class PokemonFight extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jRadioButton16)
-                                    .addComponent(jRadioButton19))))
+                                    .addComponent(jRadioButton19)))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jButton1_JTree2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButton17)
@@ -482,13 +493,32 @@ public class PokemonFight extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Usuario:");
 
-        jMenu1.setText("Ingresar");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 205, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 33, Short.MAX_VALUE)
+        );
+
+        jMenu1.setText("Login");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
             }
         });
         jMenuBar1.add(jMenu1);
+
+        jMenu2_Logout.setText("LogOut");
+        jMenu2_Logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2_LogoutMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu2_Logout);
 
         setJMenuBar(jMenuBar1);
 
@@ -502,15 +532,22 @@ public class PokemonFight extends javax.swing.JFrame {
                     .addComponent(jTabbedPane3)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -519,7 +556,17 @@ public class PokemonFight extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1_ingresar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1_ingresar1MouseClicked
-       jDialog1_Login.setVisible(false);
+       
+        
+        for (Usuarios U : usuarios) {
+            if (jTextField1_usuario1.getText().equals(U.getNombreUsuario())
+                && jTextField2_contraseña1.getText().equals(U.getContraseña())) {
+                jDialog1_Login.setVisible(false);
+                JOptionPane.showMessageDialog(jMenu1, "Usuario encontrado");
+
+            }
+        }
+
     }//GEN-LAST:event_jButton1_ingresar1MouseClicked
 
     private void jTextField1_CreaGrupo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_CreaGrupo2ActionPerformed
@@ -535,10 +582,21 @@ public class PokemonFight extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton20ActionPerformed
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        usuarios.add(new Usuarios("Luis", "Barrieri", "luismi", "1234", new Date(), Color.CYAN));
+        usuarios.get(0).addPokedex();
+        ((Pokedex) usuarios.get(0).get1Pokedex(0)).addPokemonE("Jotaro", 15, "Media");
+        ((Pokedex) usuarios.get(0).get1Pokedex(0)).addPokemonV("Dio", 12, "Alta");
+        usuarios.add(new Usuarios("Isis", "Lopez", "Holi", "jijiji", new Date(), Color.MAGENTA));
+        usuarios.get(1).addPokedex();
+        ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonP("Sakura", 10, "Baja");
+        ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonF("Sailor", 15, "Alta");
+        pokegrupos.add(new PokeGrupos("Lolnoc", new Date(), usuarios.get(0), "Novato"));
+
         jDialog1_Login.pack();
         jDialog1_Login.setLocationRelativeTo(this);
         jDialog1_Login.setModal(true);
         jDialog1_Login.setVisible(true);
+
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jButton2_Unirme2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_Unirme2ActionPerformed
@@ -546,17 +604,29 @@ public class PokemonFight extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2_Unirme2ActionPerformed
 
     private void jButton2_Registrarme1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_Registrarme1ActionPerformed
-        jDialog1_Login.setVisible(false);
+        
         jDialog2_Registro.pack();
         jDialog2_Registro.setLocationRelativeTo(this);
         jDialog2_Registro.setModal(true);
         jDialog2_Registro.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton2_Registrarme1ActionPerformed
 
     private void jTextField5_FechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5_FechaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5_FechaActionPerformed
+
+    private void jTextField2_contraseña1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2_contraseña1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2_contraseña1ActionPerformed
+
+    private void jMenu2_LogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2_LogoutMouseClicked
+        jDialog1_Login.setVisible(false);
+        jDialog2_Registro.pack();
+        jDialog2_Registro.setLocationRelativeTo(this);
+        jDialog2_Registro.setModal(true);
+        jDialog2_Registro.setVisible(true);
+    }//GEN-LAST:event_jMenu2_LogoutMouseClicked
 
     /**
      * @param args the command line arguments
@@ -626,7 +696,9 @@ public class PokemonFight extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2_Logout;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JRadioButton jRadioButton15;
@@ -654,6 +726,7 @@ public class PokemonFight extends javax.swing.JFrame {
     private javax.swing.JTree jTree3;
     // End of variables declaration//GEN-END:variables
 
-    ArrayList <Usuarios> usuarios = new ArrayList();
+    ArrayList<Usuarios> usuarios = new ArrayList();
+    ArrayList<PokeGrupos> pokegrupos = new ArrayList();
 
 }
