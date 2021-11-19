@@ -40,7 +40,7 @@ public class Pokedex {
 
     @Override
     public String toString() {
-        return "Pokedex{" + "pokemones=" + pokemones + '}';
+        return "Pokedex";
     }
     
     

@@ -6,10 +6,13 @@
 package lab6p2_dessireochoa_22111211;
 
 import java.awt.Color;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -56,6 +59,10 @@ public class PokemonFight extends javax.swing.JFrame {
         jTextField2_contraseña1 = new javax.swing.JTextField();
         jButton1_ingresar1 = new javax.swing.JButton();
         jButton2_Registrarme1 = new javax.swing.JButton();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jButton1_Salirse2 = new javax.swing.JButton();
@@ -70,7 +77,7 @@ public class PokemonFight extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTree3 = new javax.swing.JTree();
+        jTree = new javax.swing.JTree();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -268,8 +275,23 @@ public class PokemonFight extends javax.swing.JFrame {
                 .addGap(61, 61, 61))
         );
 
+        jMenuItem1.setText("jMenuItem1");
+        jPopupMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("jMenuItem2");
+        jPopupMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("jMenuItem3");
+        jPopupMenu1.add(jMenuItem3);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PokeFight");
+
+        jTabbedPane3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane3StateChanged(evt);
+            }
+        });
 
         jButton1_Salirse2.setText("Salirme de Pokegrupo");
 
@@ -366,7 +388,12 @@ public class PokemonFight extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Pokegrupo", jPanel5);
 
-        jScrollPane6.setViewportView(jTree3);
+        jTree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTreeMouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(jTree);
 
         jLabel22.setText("Nombre");
 
@@ -660,6 +687,57 @@ public class PokemonFight extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1_registrameMouseClicked
 
+    private void jTabbedPane3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane3StateChanged
+       DefaultTreeModel m = (DefaultTreeModel) jTree.getModel();
+       
+        DefaultMutableTreeNode raiz
+                = (DefaultMutableTreeNode) m.getRoot();
+        raiz.removeAllChildren();
+        
+        DefaultMutableTreeNode nodo_pokedex1;
+        nodo_pokedex1
+                = new DefaultMutableTreeNode(
+                        new Pokedex()
+                );
+        DefaultMutableTreeNode nodo_pokedex2;
+        nodo_pokedex2
+                = new DefaultMutableTreeNode(
+                        new Pokedex()
+                );
+        
+        DefaultMutableTreeNode nodo_pokedex3;
+        nodo_pokedex3
+                = new DefaultMutableTreeNode(
+                        new Pokedex()
+                );
+        
+      
+        raiz.add(nodo_pokedex3);
+        raiz.add(nodo_pokedex2);
+        raiz.add(nodo_pokedex1);
+        m.reload();
+    }//GEN-LAST:event_jTabbedPane3StateChanged
+
+    private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTreeMouseClicked
+       /*if (evt.isMetaDown()) {
+            //seleccionar un nodo con click derecho
+            int row = jTree.getClosestRowForLocation(
+                    evt.getX(), evt.getY());
+            jTree.setSelectionRow(row);
+            Object v1
+                    = jTree.getSelectionPath().
+                    getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if (nodo_seleccionado.getUserObject() instanceof Pokedex) {
+                persona_seleccionada
+                        = (Persona) nodo_seleccionado.
+                        getUserObject();
+                menu_popup.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            }
+        */
+    }//GEN-LAST:event_jTreeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -731,8 +809,12 @@ public class PokemonFight extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2_Logout;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton15;
     private javax.swing.JRadioButton jRadioButton16;
     private javax.swing.JRadioButton jRadioButton17;
@@ -755,10 +837,11 @@ public class PokemonFight extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3_Apellido;
     private javax.swing.JTextField jTextField3_Vida2;
     private javax.swing.JTextField jTextField4_Contraseña;
-    private javax.swing.JTree jTree3;
+    private javax.swing.JTree jTree;
     // End of variables declaration//GEN-END:variables
 
     ArrayList<Usuarios> usuarios = new ArrayList();
     ArrayList<PokeGrupos> pokegrupos = new ArrayList();
+   DefaultMutableTreeNode nodo_seleccionado;
 
 }
