@@ -454,12 +454,6 @@ public class PokemonFight extends javax.swing.JFrame {
 
         jLabel24.setText("Pts. Vida");
 
-        jTextField1_Nombre2.setEnabled(false);
-
-        jTextField2_Daño2.setEnabled(false);
-
-        jTextField3_Vida2.setEnabled(false);
-
         jButton1_JTree2.setText("<");
 
         jLabel25.setText("Velocidad");
@@ -831,10 +825,6 @@ public class PokemonFight extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
        JOptionPane.showMessageDialog(this, "Ingrese los nuevos cambios al lado izquierdo");
-       
-       jTextField1_Nombre2.setEnabled(true);
-       jTextField2_Daño2.setEnabled(true);
-       jTextField3_Vida2.setEnabled(true);
        jButton2_Editar2.setEnabled(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -882,12 +872,8 @@ public class PokemonFight extends javax.swing.JFrame {
        ((Pokemones)nodo_seleccionado.getUserObject()).setDaño(daño);
        
        JOptionPane.showMessageDialog(this, "Pokemon modificado");
-       
-       jTextField1_Nombre2.setEnabled(false);
-       jTextField2_Daño2.setEnabled(false);
-       jTextField3_Vida2.setEnabled(false);
-       jButton2_Editar2.setEnabled(false);
-       
+      
+       jButton2_Editar2.setEnabled(False);
        jTextField1_Nombre2.setText("");
        jTextField2_Daño2.setText("");
        jTextField3_Vida2.setText("");
