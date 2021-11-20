@@ -29,12 +29,12 @@ public class PokemonFight extends javax.swing.JFrame {
 
         usuarios.add(new Usuarios("Luis", "Barrieri", "Luismi", "1234", new Date(), Color.CYAN));
         usuarios.get(0).addPokedex();
-        ((Pokedex) usuarios.get(0).get1Pokedex(0)).addPokemonE("Jotaro", 15, "Media");
-        ((Pokedex) usuarios.get(0).get1Pokedex(0)).addPokemonV("Dio", 12, "Alta");
+        ((Pokedex) usuarios.get(0).get1Pokedex(0)).addPokemonE("Jotaro", 15, "Media", 20);
+        ((Pokedex) usuarios.get(0).get1Pokedex(0)).addPokemonV("Dio", 12, "Alta", 23);
         usuarios.add(new Usuarios("Isis", "Lopez", "Holi", "jijiji", new Date(), Color.MAGENTA));
         usuarios.get(1).addPokedex();
-        ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonP("Sakura", 10, "Baja");
-        ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonF("Sailor", 15, "Alta");
+        ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonP("Sakura", 10, "Baja", 15);
+        ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonF("Sailor", 15, "Alta", 12);
         pokegrupos.add(new PokeGrupos("Lolnoc", new Date(), usuarios.get(0), "Novato"));
         pokegrupos.get(0).addMiembro(usuarios.get(0));
         pokegrupos.get(0).addMiembro(usuarios.get(1));
@@ -720,10 +720,14 @@ public class PokemonFight extends javax.swing.JFrame {
         contraseña = jTextField4_Contraseña.getText();
         colorFavorito = jButton2_Color.getBackground();
         edad = jDateChooser1_edad.getDate();
+        
+        usuarios.add(new Usuarios(nombre, apellido, nombreUsuario, contraseña, edad, colorFavorito));
 
         JOptionPane.showMessageDialog(jDialog2_Registro, "Usuario creado");
         jTextField2.setText(nombreUsuario);
         jDialog2_Registro.setVisible(false);
+        
+        
 
 
     }//GEN-LAST:event_jButton1_registrameMouseClicked
@@ -762,6 +766,7 @@ public class PokemonFight extends javax.swing.JFrame {
                                 = new DefaultMutableTreeNode(
                                         pk
                                 );
+                        
                         nodo_pokedex1.add(pokemon);
                     }
                 }
@@ -796,11 +801,22 @@ public class PokemonFight extends javax.swing.JFrame {
     }//GEN-LAST:event_jTreeMouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+       JOptionPane.showMessageDialog(this, ((Pokemones)nodo_seleccionado.getUserObject()).getNombre() + "\n Velocidad: "+
+                                           ((Pokemones)nodo_seleccionado.getUserObject()).getVelocidad() + "\n Daño: "+
+                                           ((Pokemones)nodo_seleccionado.getUserObject()).getDaño()+"\n Daño: "+
+                                           ((Pokemones)nodo_seleccionado.getUserObject()).getVida());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+       JOptionPane.showMessageDialog(this, "Ingrese los nuevos cambios al lado izquierdo");
+       String nombre = "";
+       float daño = 0;
+       String velocidad = ""; int vid = 0;
+       
+       nombre = jTextField1_Nombre2.getText();
+       daño = Integer.parseInt(jTextField2_Daño2.getText());
+       vid = Integer.parseInt(jTextField3_Vida2.getText());
+       
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
