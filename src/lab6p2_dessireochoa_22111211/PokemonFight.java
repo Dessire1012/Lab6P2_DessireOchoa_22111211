@@ -444,6 +444,12 @@ public class PokemonFight extends javax.swing.JFrame {
 
         jLabel24.setText("Pts. Vida");
 
+        jTextField1_Nombre2.setEnabled(false);
+
+        jTextField2_Daño2.setEnabled(false);
+
+        jTextField3_Vida2.setEnabled(false);
+
         jButton1_JTree2.setText("<");
 
         jLabel25.setText("Velocidad");
@@ -482,6 +488,12 @@ public class PokemonFight extends javax.swing.JFrame {
         jRadioButton21.setText("Fantasma");
 
         jButton2_Editar2.setText("Editar");
+        jButton2_Editar2.setEnabled(false);
+        jButton2_Editar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2_Editar2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -809,14 +821,11 @@ public class PokemonFight extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
        JOptionPane.showMessageDialog(this, "Ingrese los nuevos cambios al lado izquierdo");
-       String nombre = "";
-       float daño = 0;
-       String velocidad = ""; int vid = 0;
        
-       nombre = jTextField1_Nombre2.getText();
-       daño = Integer.parseInt(jTextField2_Daño2.getText());
-       vid = Integer.parseInt(jTextField3_Vida2.getText());
-       
+       jTextField1_Nombre2.setEnabled(true);
+       jTextField2_Daño2.setEnabled(true);
+       jTextField3_Vida2.setEnabled(true);
+       jButton2_Editar2.setEnabled(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -837,6 +846,36 @@ public class PokemonFight extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2_Editar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2_Editar2MouseClicked
+        String nombre = "";
+       float daño = 0;
+       String velocidad = ""; int vid = 0;
+       
+       nombre = jTextField1_Nombre2.getText();
+       daño = Integer.parseInt(jTextField2_Daño2.getText());
+       vid = Integer.parseInt(jTextField3_Vida2.getText());
+       
+       if (jRadioButton15.isSelected()){
+           velocidad = "Baja";
+           
+       }else if (jRadioButton16.isSelected()){
+           velocidad = "Media";
+           
+       }else if (jRadioButton17.isSelected()){
+           velocidad = "Alta";
+       }
+       
+       if (jRadioButton18.isSelected()){
+          
+       }else if (jRadioButton19.isSelected()){
+           
+       }else if(jRadioButton20.isSelected()){
+           
+       }else if (jRadioButton21.isSelected()){
+           
+       }
+    }//GEN-LAST:event_jButton2_Editar2MouseClicked
 
     /**
      * @param args the command line arguments

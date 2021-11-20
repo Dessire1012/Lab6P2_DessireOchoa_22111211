@@ -708,10 +708,19 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField1_Nombre2">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField2_Da&#xf1;o2">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField3_Vida2">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1_JTree2">
               <Properties>
@@ -793,7 +802,11 @@
             <Component class="javax.swing.JButton" name="jButton2_Editar2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Editar"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2_Editar2MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
