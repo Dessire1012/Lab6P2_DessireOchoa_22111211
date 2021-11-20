@@ -22,6 +22,11 @@ public class PokeGrupos {
         this.tipo = tipo;
     }
 
+    public PokeGrupos(String nombre) {
+        this.nombre = nombre;
+    }
+
+
     public String getNombre() {
         return nombre;
     }
@@ -36,6 +41,10 @@ public class PokeGrupos {
 
     public void setMiembros(ArrayList<Usuarios> miembros) {
         this.miembros = miembros;
+    }
+    
+    public void addMiembro (Usuarios u){
+        miembros.add(u);
     }
 
     public Date getFechaCreacion() {

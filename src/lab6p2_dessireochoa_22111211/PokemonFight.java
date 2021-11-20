@@ -26,7 +26,7 @@ public class PokemonFight extends javax.swing.JFrame {
      */
     public PokemonFight() {
         initComponents();
-        
+
         usuarios.add(new Usuarios("Luis", "Barrieri", "Luismi", "1234", new Date(), Color.CYAN));
         usuarios.get(0).addPokedex();
         ((Pokedex) usuarios.get(0).get1Pokedex(0)).addPokemonE("Jotaro", 15, "Media");
@@ -36,12 +36,14 @@ public class PokemonFight extends javax.swing.JFrame {
         ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonP("Sakura", 10, "Baja");
         ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonF("Sailor", 15, "Alta");
         pokegrupos.add(new PokeGrupos("Lolnoc", new Date(), usuarios.get(0), "Novato"));
+        pokegrupos.get(0).addMiembro(usuarios.get(0));
+        pokegrupos.get(0).addMiembro(usuarios.get(1));
         DefaultComboBoxModel modelo
                 = (DefaultComboBoxModel) jComboBox1_Pokegrupos2.getModel();
-        for (PokeGrupos p: pokegrupos) {
+        for (PokeGrupos p : pokegrupos) {
             modelo.addElement(p.getNombre());
         }
-        
+
     }
 
     /**
@@ -94,6 +96,7 @@ public class PokemonFight extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         jLabel21 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTree = new javax.swing.JTree();
@@ -353,6 +356,13 @@ public class PokemonFight extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel21.setText("Lista de Usuarios de mi Pokegrupo");
 
+        jButton1.setText("Ver");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -383,8 +393,11 @@ public class PokemonFight extends javax.swing.JFrame {
                         .addComponent(jButton3_CrearGrupo2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61))
         );
         jPanel5Layout.setVerticalGroup(
@@ -393,10 +406,12 @@ public class PokemonFight extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1_Salirse2)
-                    .addComponent(jLabel21))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel21)
+                        .addComponent(jButton1)))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
+                        .addGap(40, 40, 40)
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBox1_Pokegrupos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -409,9 +424,9 @@ public class PokemonFight extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3_CrearGrupo2))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Pokegrupo", jPanel5);
@@ -645,7 +660,6 @@ public class PokemonFight extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton20ActionPerformed
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        
 
         jDialog1_Login.pack();
         jDialog1_Login.setLocationRelativeTo(this);
@@ -699,86 +713,85 @@ public class PokemonFight extends javax.swing.JFrame {
         String contraseña;
         Date edad;
         Color colorFavorito;
-        
+
         nombre = jTextField1_Nombre.getText();
         apellido = jTextField3_Apellido.getText();
         nombreUsuario = jTextField2_Usuario.getText();
         contraseña = jTextField4_Contraseña.getText();
         colorFavorito = jButton2_Color.getBackground();
         edad = jDateChooser1_edad.getDate();
-        
+
         JOptionPane.showMessageDialog(jDialog2_Registro, "Usuario creado");
         jTextField2.setText(nombreUsuario);
         jDialog2_Registro.setVisible(false);
-        
+
 
     }//GEN-LAST:event_jButton1_registrameMouseClicked
 
     private void jTabbedPane3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane3StateChanged
-       DefaultTreeModel m = (DefaultTreeModel) jTree.getModel();
-       
+        DefaultTreeModel m = (DefaultTreeModel) jTree.getModel();
+
         DefaultMutableTreeNode raiz
                 = (DefaultMutableTreeNode) m.getRoot();
         raiz.removeAllChildren();
-        
+
         DefaultMutableTreeNode nodo_pokedex1;
         nodo_pokedex1
                 = new DefaultMutableTreeNode(
-                        new Pokedex()
+                        new Pokedex() + " 1"
                 );
-        
+
         DefaultMutableTreeNode nodo_pokedex2;
         nodo_pokedex2
                 = new DefaultMutableTreeNode(
-                        new Pokedex()
+                        new Pokedex() + " 2"
                 );
-        
+
         DefaultMutableTreeNode nodo_pokedex3;
         nodo_pokedex3
                 = new DefaultMutableTreeNode(
-                        new Pokedex()
+                        new Pokedex() + " 3"
                 );
-        
+
         DefaultMutableTreeNode nodo_electrico;
         nodo_electrico = new DefaultMutableTreeNode(new PokeElectrico());
-        
+
         DefaultMutableTreeNode nodo_fantasma;
         nodo_fantasma = new DefaultMutableTreeNode(new PokeFantasma());
-        
+
         DefaultMutableTreeNode nodo_venenoso;
         nodo_venenoso = new DefaultMutableTreeNode(new PokeVenenoso());
-        
+
         DefaultMutableTreeNode nodo_psiquico;
         nodo_psiquico = new DefaultMutableTreeNode(new PokePsiquico());
-        
-        
-    
+
+        nodo_pokedex3.add(nodo_fantasma);
+        raiz.add(nodo_pokedex1);
         nodo_pokedex2.add(nodo_psiquico);
-        nodo_pokedex2.add(nodo_venenoso);
-        nodo_pokedex2.add(nodo_fantasma);
-        nodo_pokedex2.add(nodo_electrico);
         raiz.add(nodo_pokedex2);
+        nodo_pokedex1.add(nodo_electrico);
+        raiz.add(nodo_pokedex3);
         m.reload();
     }//GEN-LAST:event_jTabbedPane3StateChanged
 
     private void jTreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTreeMouseClicked
-       if (evt.isMetaDown()) {
+        if (evt.isMetaDown()) {
             //seleccionar un nodo con click derecho
             int row = jTree.getClosestRowForLocation(
                     evt.getX(), evt.getY());
             jTree.setSelectionRow(row);
             Object v1
                     = jTree.getSelectionPath().
-                    getLastPathComponent();
+                            getLastPathComponent();
             nodo_seleccionado = (DefaultMutableTreeNode) v1;
-            if (nodo_seleccionado.getUserObject() instanceof Pokedex) {
-                Pokedex pokemonSeleccionado
-                        = (Pokedex) nodo_seleccionado.
-                        getUserObject();
+            if (nodo_seleccionado.getUserObject() instanceof Pokemones) {
+                Pokemones pokemonSeleccionado
+                        = (Pokemones) nodo_seleccionado.
+                                getUserObject();
                 jPopupMenu1.show(evt.getComponent(),
                         evt.getX(), evt.getY());
             }
-    }    
+        }
     }//GEN-LAST:event_jTreeMouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -788,6 +801,25 @@ public class PokemonFight extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        String usuario = jTextField2.getText();
+        PokeGrupos pk;
+
+        for (PokeGrupos p : pokegrupos) {
+            for (Usuarios usu : p.getMiembros()) {
+                if (usu.getNombreUsuario().equals(jTextField2.getText())) {
+                    pk = p;
+                    jTextArea3.setText("");
+                    for (Usuarios u : pk.getMiembros()) {
+                        jTextArea3.append(u.getNombreUsuario() + "\n");
+                    }
+                }
+            }
+        }
+
+       
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -827,6 +859,7 @@ public class PokemonFight extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Tipo;
     private javax.swing.ButtonGroup Velocidad;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_JTree2;
     private javax.swing.JButton jButton1_Salirse2;
     private javax.swing.JButton jButton1_ingresar1;
@@ -895,6 +928,6 @@ public class PokemonFight extends javax.swing.JFrame {
 
     ArrayList<Usuarios> usuarios = new ArrayList();
     ArrayList<PokeGrupos> pokegrupos = new ArrayList();
-   DefaultMutableTreeNode nodo_seleccionado;
+    DefaultMutableTreeNode nodo_seleccionado;
 
 }
