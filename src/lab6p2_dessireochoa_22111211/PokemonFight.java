@@ -753,23 +753,24 @@ public class PokemonFight extends javax.swing.JFrame {
                         new Pokedex() + " 3"
                 );
 
-        DefaultMutableTreeNode nodo_electrico;
-        nodo_electrico = new DefaultMutableTreeNode(new PokeElectrico());
+        for (Usuarios u : usuarios) {
+            if (jTextField2.getText().equals(u.getNombreUsuario())) {
+                for (Pokedex px : u.getPokedex()) {
+                    for (Pokemones pk : px.getPokemones()) {
+                        DefaultMutableTreeNode pokemon;
+                        pokemon
+                                = new DefaultMutableTreeNode(
+                                        pk
+                                );
+                        nodo_pokedex1.add(pokemon);
+                    }
+                }
+            }
+        }
 
-        DefaultMutableTreeNode nodo_fantasma;
-        nodo_fantasma = new DefaultMutableTreeNode(new PokeFantasma());
-
-        DefaultMutableTreeNode nodo_venenoso;
-        nodo_venenoso = new DefaultMutableTreeNode(new PokeVenenoso());
-
-        DefaultMutableTreeNode nodo_psiquico;
-        nodo_psiquico = new DefaultMutableTreeNode(new PokePsiquico());
-
-        nodo_pokedex3.add(nodo_fantasma);
+     
         raiz.add(nodo_pokedex1);
-        nodo_pokedex2.add(nodo_psiquico);
         raiz.add(nodo_pokedex2);
-        nodo_pokedex1.add(nodo_electrico);
         raiz.add(nodo_pokedex3);
         m.reload();
     }//GEN-LAST:event_jTabbedPane3StateChanged
@@ -818,7 +819,7 @@ public class PokemonFight extends javax.swing.JFrame {
             }
         }
 
-       
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
