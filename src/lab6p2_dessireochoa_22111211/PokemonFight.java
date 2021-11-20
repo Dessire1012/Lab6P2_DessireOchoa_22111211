@@ -314,6 +314,11 @@ public class PokemonFight extends javax.swing.JFrame {
         jPopupMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Eliminar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(jMenuItem3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -347,6 +352,11 @@ public class PokemonFight extends javax.swing.JFrame {
         });
 
         jButton3_CrearGrupo2.setText("Crear Grupo");
+        jButton3_CrearGrupo2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3_CrearGrupo2MouseClicked(evt);
+            }
+        });
 
         jTextArea3.setEditable(false);
         jTextArea3.setColumns(20);
@@ -866,16 +876,42 @@ public class PokemonFight extends javax.swing.JFrame {
            velocidad = "Alta";
        }
        
-       if (jRadioButton18.isSelected()){
-          
-       }else if (jRadioButton19.isSelected()){
-           
-       }else if(jRadioButton20.isSelected()){
-           
-       }else if (jRadioButton21.isSelected()){
-           
-       }
+      ((Pokemones)nodo_seleccionado.getUserObject()).setNombre(nombre);
+      ((Pokemones)nodo_seleccionado.getUserObject()).setVelocidad(velocidad);
+      ((Pokemones)nodo_seleccionado.getUserObject()).setVida(vid);
+       ((Pokemones)nodo_seleccionado.getUserObject()).setDaño(daño);
+       
+       JOptionPane.showMessageDialog(this, "Pokemon modificado");
+       
+       jTextField1_Nombre2.setEnabled(false);
+       jTextField2_Daño2.setEnabled(false);
+       jTextField3_Vida2.setEnabled(false);
+       jButton2_Editar2.setEnabled(false);
+       
+       jTextField1_Nombre2.setText("");
+       jTextField2_Daño2.setText("");
+       jTextField3_Vida2.setText("");
+       
     }//GEN-LAST:event_jButton2_Editar2MouseClicked
+
+    private void jButton3_CrearGrupo2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3_CrearGrupo2MouseClicked
+        String nombre = jTextField1_CreaGrupo2.getText();
+        pokegrupos.add(new PokeGrupos(nombre));
+        
+        JOptionPane.showMessageDialog(this, "Grupo creado");
+        jTextField1_CreaGrupo2.setText("");
+        
+        DefaultComboBoxModel modelo
+                = (DefaultComboBoxModel) jComboBox1_Pokegrupos2.getModel();
+        modelo.removeAllElements();
+        for (PokeGrupos p : pokegrupos) {
+            modelo.addElement(p.getNombre());
+        }
+    }//GEN-LAST:event_jButton3_CrearGrupo2MouseClicked
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
