@@ -13,7 +13,7 @@ public class PokeFantasma extends Pokemones{
 
     @Override
     public String toString() {
-        return super.toString();
+        return super.toString() + " Fantasma";
     }
     
 }

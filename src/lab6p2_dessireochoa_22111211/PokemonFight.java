@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -25,6 +26,22 @@ public class PokemonFight extends javax.swing.JFrame {
      */
     public PokemonFight() {
         initComponents();
+        
+        usuarios.add(new Usuarios("Luis", "Barrieri", "Luismi", "1234", new Date(), Color.CYAN));
+        usuarios.get(0).addPokedex();
+        ((Pokedex) usuarios.get(0).get1Pokedex(0)).addPokemonE("Jotaro", 15, "Media");
+        ((Pokedex) usuarios.get(0).get1Pokedex(0)).addPokemonV("Dio", 12, "Alta");
+        usuarios.add(new Usuarios("Isis", "Lopez", "Holi", "jijiji", new Date(), Color.MAGENTA));
+        usuarios.get(1).addPokedex();
+        ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonP("Sakura", 10, "Baja");
+        ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonF("Sailor", 15, "Alta");
+        pokegrupos.add(new PokeGrupos("Lolnoc", new Date(), usuarios.get(0), "Novato"));
+        DefaultComboBoxModel modelo
+                = (DefaultComboBoxModel) jComboBox1_Pokegrupos2.getModel();
+        for (PokeGrupos p: pokegrupos) {
+            modelo.addElement(p.getNombre());
+        }
+        
     }
 
     /**
@@ -63,6 +80,8 @@ public class PokemonFight extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        Velocidad = new javax.swing.ButtonGroup();
+        Tipo = new javax.swing.ButtonGroup();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jButton1_Salirse2 = new javax.swing.JButton();
@@ -308,8 +327,6 @@ public class PokemonFight extends javax.swing.JFrame {
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Unirme a un Pokegrupo");
 
-        jComboBox1_Pokegrupos2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton2_Unirme2.setText("Unirme");
         jButton2_Unirme2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,6 +345,7 @@ public class PokemonFight extends javax.swing.JFrame {
 
         jButton3_CrearGrupo2.setText("Crear Grupo");
 
+        jTextArea3.setEditable(false);
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jScrollPane5.setViewportView(jTextArea3);
@@ -415,10 +433,13 @@ public class PokemonFight extends javax.swing.JFrame {
 
         jLabel25.setText("Velocidad");
 
+        Velocidad.add(jRadioButton15);
         jRadioButton15.setText("Baja");
 
+        Velocidad.add(jRadioButton16);
         jRadioButton16.setText("Media");
 
+        Velocidad.add(jRadioButton17);
         jRadioButton17.setText("Alta ");
         jRadioButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -428,10 +449,13 @@ public class PokemonFight extends javax.swing.JFrame {
 
         jLabel26.setText("Tipo");
 
+        Tipo.add(jRadioButton18);
         jRadioButton18.setText("Electrico");
 
+        Tipo.add(jRadioButton19);
         jRadioButton19.setText("Psiquico");
 
+        Tipo.add(jRadioButton20);
         jRadioButton20.setText("Venenoso");
         jRadioButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -439,6 +463,7 @@ public class PokemonFight extends javax.swing.JFrame {
             }
         });
 
+        Tipo.add(jRadioButton21);
         jRadioButton21.setText("Fantasma");
 
         jButton2_Editar2.setText("Editar");
@@ -620,15 +645,7 @@ public class PokemonFight extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton20ActionPerformed
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        usuarios.add(new Usuarios("Luis", "Barrieri", "Luismi", "1234", new Date(), Color.CYAN));
-        usuarios.get(0).addPokedex();
-        ((Pokedex) usuarios.get(0).get1Pokedex(0)).addPokemonE("Jotaro", 15, "Media");
-        ((Pokedex) usuarios.get(0).get1Pokedex(0)).addPokemonV("Dio", 12, "Alta");
-        usuarios.add(new Usuarios("Isis", "Lopez", "Holi", "jijiji", new Date(), Color.MAGENTA));
-        usuarios.get(1).addPokedex();
-        ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonP("Sakura", 10, "Baja");
-        ((Pokedex) usuarios.get(1).get1Pokedex(0)).addPokemonF("Sailor", 15, "Alta");
-        pokegrupos.add(new PokeGrupos("Lolnoc", new Date(), usuarios.get(0), "Novato"));
+        
 
         jDialog1_Login.pack();
         jDialog1_Login.setLocationRelativeTo(this);
@@ -722,10 +739,25 @@ public class PokemonFight extends javax.swing.JFrame {
                         new Pokedex()
                 );
         
-      
-        raiz.add(nodo_pokedex3);
+        DefaultMutableTreeNode nodo_electrico;
+        nodo_electrico = new DefaultMutableTreeNode(new PokeElectrico());
+        
+        DefaultMutableTreeNode nodo_fantasma;
+        nodo_fantasma = new DefaultMutableTreeNode(new PokeFantasma());
+        
+        DefaultMutableTreeNode nodo_venenoso;
+        nodo_venenoso = new DefaultMutableTreeNode(new PokeVenenoso());
+        
+        DefaultMutableTreeNode nodo_psiquico;
+        nodo_psiquico = new DefaultMutableTreeNode(new PokePsiquico());
+        
+        
+    
+        nodo_pokedex2.add(nodo_psiquico);
+        nodo_pokedex2.add(nodo_venenoso);
+        nodo_pokedex2.add(nodo_fantasma);
+        nodo_pokedex2.add(nodo_electrico);
         raiz.add(nodo_pokedex2);
-        raiz.add(nodo_pokedex1);
         m.reload();
     }//GEN-LAST:event_jTabbedPane3StateChanged
 
@@ -793,6 +825,8 @@ public class PokemonFight extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup Tipo;
+    private javax.swing.ButtonGroup Velocidad;
     private javax.swing.JButton jButton1_JTree2;
     private javax.swing.JButton jButton1_Salirse2;
     private javax.swing.JButton jButton1_ingresar1;

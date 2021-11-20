@@ -296,6 +296,10 @@
         </MenuItem>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.ButtonGroup" name="Velocidad">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="Tipo">
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
@@ -480,16 +484,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBox1_Pokegrupos2">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
-                </Property>
-              </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -527,6 +521,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="jTextArea3">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
@@ -715,16 +710,25 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton15">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="Velocidad"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Baja"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton16">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="Velocidad"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Media"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton17">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="Velocidad"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Alta "/>
               </Properties>
               <Events>
@@ -738,16 +742,25 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton18">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="Tipo"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Electrico"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton19">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="Tipo"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Psiquico"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton20">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="Tipo"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Venenoso"/>
               </Properties>
               <Events>
@@ -756,6 +769,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton21">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="Tipo"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Fantasma"/>
               </Properties>
             </Component>

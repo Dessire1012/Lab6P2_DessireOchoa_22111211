@@ -42,7 +42,7 @@ public class Pokemones {
 
     @Override
     public String toString() {
-        return "Pokemones{" + "nombre=" + nombre + ", da\u00f1o=" + daño + ", velocidad=" + velocidad + '}';
+        return "Pokemon";
     }
    
     

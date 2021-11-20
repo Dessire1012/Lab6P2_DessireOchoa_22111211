@@ -12,7 +12,7 @@ public class PokeElectrico extends Pokemones{
 
     @Override
     public String toString() {
-         return super.toString();
+         return super.toString() + " Electrico";
     }
     
     
