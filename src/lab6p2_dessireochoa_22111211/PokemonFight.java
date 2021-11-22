@@ -873,7 +873,7 @@ public class PokemonFight extends javax.swing.JFrame {
        
        JOptionPane.showMessageDialog(this, "Pokemon modificado");
       
-       jButton2_Editar2.setEnabled(False);
+       jButton2_Editar2.setEnabled(false);
        jTextField1_Nombre2.setText("");
        jTextField2_Daño2.setText("");
        jTextField3_Vida2.setText("");
